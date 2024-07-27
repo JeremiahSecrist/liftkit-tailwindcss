@@ -40,6 +40,13 @@ module.exports = plugin.withOptions(
 
     return {
       theme: {
+        scaleFactor: "1.618",
+        screens: {
+          sm: "998.875px",
+          md: "1257px",
+          lg: "1806.6px",
+          // full: "none",
+        },
         boxShadow: boxShadows,
         aspectRatio: {
           "16-9": "16 / 9",
@@ -54,7 +61,7 @@ module.exports = plugin.withOptions(
           bold: "700",
         },
         fontSize: {
-          "display-lg": [
+          "display-1": [
             "4.235em",
             {
               lineHeight: "1.129",
@@ -62,7 +69,7 @@ module.exports = plugin.withOptions(
               fontWeight: "400",
             },
           ],
-          "display-sm": [
+          "display-2": [
             "2.618em",
             {
               lineHeight: "1.272",
@@ -70,7 +77,7 @@ module.exports = plugin.withOptions(
               fontWeight: "400",
             },
           ],
-          "title-lg": [
+          "title-1": [
             "2.058em",
             {
               lineHeight: "1.272",
@@ -78,7 +85,7 @@ module.exports = plugin.withOptions(
               fontWeight: "400",
             },
           ],
-          "title-md": [
+          "title-2": [
             "1.618em",
             {
               lineHeight: "1.272",
@@ -86,7 +93,7 @@ module.exports = plugin.withOptions(
               fontWeight: "400",
             },
           ],
-          "title-sm": [
+          "title-3": [
             "1.272em",
             {
               lineHeight: "1.272",
@@ -157,16 +164,16 @@ module.exports = plugin.withOptions(
             ...theme("spacing"),
             circle: "100em",
           }),
-          spacing: {
+          spacing: ({theme}) => ({
             "2xs": "0.236em",
             xs: " 0.382em",
             sm: "0.618em",
             // DEFAULT: '1em',
             md: "1em",
-            lg: "1.618em",
+            lg: `${theme("scaleFactor")}em`,
             xl: "2.618em",
             "2xl": "4.236em",
-          },
+          }),
           colors: {
             [`${pluginPrefix}`]: materialColors,
           },
