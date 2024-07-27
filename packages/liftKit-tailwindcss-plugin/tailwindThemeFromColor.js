@@ -113,6 +113,7 @@ export const tailwindThemeFromColor = (colorsMap, scheme, contrast) => {
     current: "currentColor",
     black: "#000000",
     white: "#ffffff",
+    info: "#175bfc",
   };
 
   Object.entries(AllMaterialDynamicColors).forEach(([name, DynamicColor]) => {
