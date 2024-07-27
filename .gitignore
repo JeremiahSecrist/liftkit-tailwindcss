@@ -2,3 +2,4 @@
 node_modules
 dist
 tw-full.js
+packages/liftKit-tailwindcss-plugin/checks/src/output.css
