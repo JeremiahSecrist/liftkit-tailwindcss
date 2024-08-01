@@ -2,7 +2,7 @@ import { tailwindThemeFromColor } from "./tailwindThemeFromColor";
 const plugin = require("tailwindcss/plugin");
 
 module.exports = plugin.withOptions(
-  function (options = {}) {
+  function(options = {}) {
     const pluginPrefix = options?.pluginPrefix || "lk";
     var materialColors = tailwindThemeFromColor(
       options?.colorsMap || { primary: "#ff0000" },
@@ -10,7 +10,7 @@ module.exports = plugin.withOptions(
       options?.contrast || 0
     );
     // const colorsMap = options.colorsMap ?? { primary: "#ff0000" };
-    return function ({
+    return function({
       addBase,
       addUtilities,
       config,
@@ -29,7 +29,11 @@ module.exports = plugin.withOptions(
       });
     };
   },
-  function (options = {}) {
+  function(options = {}) {
+
+    const calcScale = (factor, power, precision = 6) => Math.pow(factor, power).toPrecision(precision);
+    const scaleFromTheme = (theme, power) => (`${calcScale(theme("lkScaling").factor, power)}em`)
+    const scaleToEm = (factor, power) => (`${calcScale(factor, power)}em`)
     const pluginPrefix = options?.pluginPrefix || "lk";
     var materialColors = tailwindThemeFromColor(
       options?.colorsMap || { primary: "#ff0000" },
@@ -37,10 +41,33 @@ module.exports = plugin.withOptions(
       options?.contrast || 0
     );
     const boxShadows = require("./themes/shadows.json");
-
+    const fontSize = require("./themes/fonts.json");
+    const createSpacing = (theme) => {
+      const { factor, scale } = theme('lk').scaling;
+      return Object.fromEntries(
+        Object.entries(scale).map(([key, value]) => [
+          key,
+          scaleToEm(factor, value)
+        ])
+      );
+    };
     return {
       theme: {
-        scaleFactor: "1.618",
+        lk:{
+          scaling: {
+          // This is done in powers for smooth scaling
+          factor: 1.618,
+          scale: {
+            "2xs": -3,
+            xs: -2, 
+            sm: -1,
+            md: 1,
+            lg: 2,
+            xl: 3,
+            "2xl": 4
+          },
+        }
+      },
         screens: {
           sm: "998.875px",
           md: "1257px",
@@ -60,122 +87,17 @@ module.exports = plugin.withOptions(
           light: "300",
           bold: "700",
         },
-        fontSize: {
-          "display-1": [
-            "4.235em",
-            {
-              lineHeight: "1.129",
-              letterSpacing: "-0.022em",
-              fontWeight: "400",
-            },
-          ],
-          "display-2": [
-            "2.618em",
-            {
-              lineHeight: "1.272",
-              letterSpacing: "-0.022em",
-              fontWeight: "400",
-            },
-          ],
-          "title-1": [
-            "2.058em",
-            {
-              lineHeight: "1.272",
-              letterSpacing: "-0.022em",
-              fontWeight: "400",
-            },
-          ],
-          "title-2": [
-            "1.618em",
-            {
-              lineHeight: "1.272",
-              letterSpacing: "-0.02em",
-              fontWeight: "400",
-            },
-          ],
-          "title-3": [
-            "1.272em",
-            {
-              lineHeight: "1.272",
-              letterSpacing: "-0.017em",
-              fontWeight: "400",
-            },
-          ],
-          heading: [
-            "1.129em",
-            {
-              lineHeight: "1.272",
-              letterSpacing: "-0.014em",
-              fontWeight: "600",
-            },
-          ],
-          "heading-sub": [
-            "0.885em",
-            {
-              lineHeight: "1.272",
-              letterSpacing: "-0.007em",
-              fontWeight: "400",
-            },
-          ],
-          body: [
-            "1em",
-            {
-              lineHeight: "1.618",
-              letterSpacing: "-0.011em",
-              fontWeight: "400",
-            },
-          ],
-          callout: [
-            "0.943em",
-            {
-              lineHeight: "1.272",
-              letterSpacing: "-0.009em",
-              fontWeight: "400",
-            },
-          ],
-          label: [
-            "0.835em",
-            {
-              lineHeight: "1.272",
-              letterSpacing: "-0.004em",
-              fontWeight: "500",
-            },
-          ],
-          caption: [
-            "0.786em",
-            {
-              lineHeight: "1.272",
-              letterSpacing: "-0.007em",
-              fontWeight: "400",
-            },
-          ],
-          overline: [
-            "0.786em",
-            {
-              lineHeight: "1.272",
-              letterSpacing: "0.0618em",
-              fontWeight: "400",
-            },
-          ],
-        },
+        fontSize: fontSize,
         extend: {
           borderRadius: ({ theme }) => ({
             none: "0px",
             ...theme("spacing"),
             circle: "100em",
           }),
-          spacing: ({theme}) => ({
-            "2xs": "0.236em",
-            xs: " 0.382em",
-            sm: "0.618em",
-            // DEFAULT: '1em',
-            md: "1em",
-            lg: `${theme("scaleFactor")}em`,
-            xl: "2.618em",
-            "2xl": "4.236em",
-          }),
+          spacing: ({ theme }) => createSpacing(theme)
+          ,
           colors: {
-            [`${pluginPrefix}`]: materialColors,
+            [pluginPrefix]: materialColors,
           },
         },
       },
