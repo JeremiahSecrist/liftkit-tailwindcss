@@ -1,4 +1,5 @@
 import { tailwindThemeFromColor } from "./tailwindThemeFromColor";
+import { calcScale, scaleToEm } from "./lib";
 const plugin = require("tailwindcss/plugin");
 
 module.exports = plugin.withOptions(
@@ -31,9 +32,7 @@ module.exports = plugin.withOptions(
   },
   function(options = {}) {
 
-    const calcScale = (factor, power, precision = 6) => Math.pow(factor, power).toPrecision(precision);
-    const scaleFromTheme = (theme, power) => (`${calcScale(theme("lkScaling").factor, power)}em`)
-    const scaleToEm = (factor, power) => (`${calcScale(factor, power)}em`)
+    
     const pluginPrefix = options?.pluginPrefix || "lk";
     var materialColors = tailwindThemeFromColor(
       options?.colorsMap || { primary: "#ff0000" },
