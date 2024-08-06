@@ -12,16 +12,16 @@ module.exports = plugin.withOptions(
     );
     // const colorsMap = options.colorsMap ?? { primary: "#ff0000" };
     return function({
-      addBase,
-      addUtilities,
-      config,
-      corePlugins,
-      e,
-      matchComponents,
-      matchUtilities,
+      //   addBase,
+      //   addUtilities,
+      //   config,
+      //   corePlugins,
+      //   e,
+      //   matchComponents,
+      // matchUtilities,
       addComponents,
-      matchVariant,
-      theme,
+      // matchVariant,
+      // theme,
     }) {
       addComponents({
         // [`.${className}`]: {
@@ -32,7 +32,7 @@ module.exports = plugin.withOptions(
   },
   function(options = {}) {
 
-    
+
     const pluginPrefix = options?.pluginPrefix || "lk";
     var materialColors = tailwindThemeFromColor(
       options?.colorsMap || { primary: "#ff0000" },
@@ -52,21 +52,21 @@ module.exports = plugin.withOptions(
     };
     return {
       theme: {
-        lk:{
+        lk: {
           scaling: {
-          // This is done in powers for smooth scaling
-          factor: 1.618,
-          scale: {
-            "2xs": -3,
-            xs: -2, 
-            sm: -1,
-            md: 1,
-            lg: 2,
-            xl: 3,
-            "2xl": 4
-          },
-        }
-      },
+            // This is done in powers for smooth scaling
+            factor: 1.618,
+            scale: {
+              "2xs": -3,
+              xs: -2,
+              sm: -1,
+              md: 1,
+              lg: 2,
+              xl: 3,
+              "2xl": 4
+            },
+          }
+        },
         screens: {
           sm: "998.875px",
           md: "1257px",
