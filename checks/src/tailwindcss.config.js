@@ -4,5 +4,5 @@ module.exports = {
   // presets: [require("./preset").preset],
   content: ["./**/index.html"],
   theme: {},
-  plugins: [require("../../../liftKit-tailwindcss-plugin"), "prettier-plugin-tailwindcss"],
+  plugins: [require("../../src"), "prettier-plugin-tailwindcss"],
 };

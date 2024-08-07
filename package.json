@@ -2,10 +2,10 @@
   "name": "liftkit-tailwindcss",
   "version": "0.0.6",
   "description": "Chainlift's LiftKit design system for Tailwindcss",
-  "main": "packages/liftKit-tailwindcss-plugin/index",
+  "main": "",
   "types": "packages/liftKit-tailwindcss-plugin/index",
   "scripts": {
-    "watch": "tailwindcss -c ./packages/liftKit-tailwindcss-plugin/checks/src/tailwindcss.config.js  -i ./packages/liftKit-tailwindcss-plugin/checks/src/input.css -o ./packages/liftKit-tailwindcss-plugin/checks/src/output.css  --watch ",
+    "watch": "tailwindcss -c ./checks/src/tailwindcss.config.js  -i ./checks/src/input.css -o ./checks/src/output.css  --watch ",
     "test": "echo \"Error: no test specified\" && exit 0"
   },
   "repository": {
