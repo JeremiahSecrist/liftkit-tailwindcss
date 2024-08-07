@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 import { tailwindThemeFromColor } from "./tailwindThemeFromColor";
 import { calcScale, scaleToEm } from "./lib";
 const plugin = require("tailwindcss/plugin");
