@@ -1,6 +1,6 @@
 {
   "name": "liftkit-tailwindcss",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Chainlift's LiftKit design system for Tailwindcss",
   "main": "packages/liftKit-tailwindcss-plugin/index",
   "types": "packages/liftKit-tailwindcss-plugin/index",
