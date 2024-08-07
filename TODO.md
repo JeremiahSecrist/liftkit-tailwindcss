@@ -14,16 +14,16 @@
 # Deliverables
 
 ## Feature list
-- [ ] Colors **XTFW**
+- [ ] Colors **XTFW** **CM**
 - [ ] Typography **XTFW**
 - [ ] Scaling System **XTFW**
-- [ ] State Layers
-- [ ] Normalization
+- [ ] State Layers **CM**
+- [ ] Normalization **PBTW**
 - [ ] Global Variable
 
 - [ ] Layout
-    - [ ] Sections
-    - [ ] Containers
+    - [ ] Sections **CM**
+    - [ ] Containers **CM**
     - [ ] Flex Boxes **PBTW**
     - [ ] Grid **PBTW**
 
@@ -35,16 +35,16 @@
     - [ ] Overflow **PBTW**
     - [ ] Padding **PBTW**
     - [ ] Position **PBTW**
-    - [ ] Spacing logic
+    - [ ] Spacing logic **CM**
 
 - [ ] Styling Elements
     - [ ] Aligning Self **PBTW**
-    - [ ] Aspect Ratios
-    - [ ] Background Colors
-    - [ ] Border Radius
+    - [ ] Aspect Ratios **XTFW**
+    - [ ] Background Colors **XTFW**
+    - [ ] Border Radius **XTFW**
     - [ ] Display **PBTW**
-    - [ ] Font Color
+    - [ ] Font Color **CM**
     - [ ] Opacity **PBTW**
-    - [ ] Scale
-    - [ ] Shadows
+    - [ ] Scale **CM**
+    - [ ] Shadows **XTFW**
     - [ ] Text Alignment **PBTW**
