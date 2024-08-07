@@ -13,16 +13,16 @@ module.exports = plugin.withOptions(
     );
     // const colorsMap = options.colorsMap ?? { primary: "#ff0000" };
     return function({
-      //   addBase,
-      //   addUtilities,
-      //   config,
-      //   corePlugins,
-      //   e,
-      //   matchComponents,
-      // matchUtilities,
+      addBase,
+      addUtilities,
+      config,
+      corePlugins,
+      e,
+      matchComponents,
+      matchUtilities,
       addComponents,
-      // matchVariant,
-      // theme,
+      matchVariant,
+      theme,
     }) {
       addComponents({
         // [`.${className}`]: {
