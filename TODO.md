@@ -15,36 +15,36 @@
 
 ## Feature list
 - [ ] Colors **XTFW** **CM**
-- [ ] Typography **XTFW**
-- [ ] Scaling System **XTFW**
+- [x] Typography **XTFW**
+- [x] Scaling System **XTFW**
 - [ ] State Layers **CM**
-- [ ] Normalization **PBTW**
+- [x] Normalization **PBTW**
 - [ ] Global Variable
 
 - [ ] Layout
     - [ ] Sections **CM**
     - [ ] Containers **CM**
-    - [ ] Flex Boxes **PBTW**
-    - [ ] Grid **PBTW**
+    - [x] Flex Boxes **PBTW**
+    - [x] Grid **PBTW**
 
 - [ ] Arranging Content
-    - [ ] Aligning Children **PBTW**
-    - [ ] Gaps **PBTW**
-    - [ ] Justifying Content **PBTW**
-    - [ ] Margins **PBTW**
-    - [ ] Overflow **PBTW**
-    - [ ] Padding **PBTW**
-    - [ ] Position **PBTW**
+    - [x] Aligning Children **PBTW**
+    - [x] Gaps **PBTW**
+    - [x] Justifying Content **PBTW**
+    - [x] Margins **PBTW**
+    - [x] Overflow **PBTW**
+    - [x] Padding **PBTW**
+    - [x] Position **PBTW**
     - [ ] Spacing logic **CM**
 
 - [ ] Styling Elements
-    - [ ] Aligning Self **PBTW**
-    - [ ] Aspect Ratios **XTFW**
+    - [x] Aligning Self **PBTW**
+    - [x] Aspect Ratios **XTFW**
     - [ ] Background Colors **XTFW**
-    - [ ] Border Radius **XTFW**
-    - [ ] Display **PBTW**
-    - [ ] Font Color **CM**
-    - [ ] Opacity **PBTW**
+    - [x] Border Radius **XTFW**
+    - [x] Display **PBTW**
+    - [x] Font Color **CM**
+    - [x] Opacity **PBTW**
     - [ ] Scale **CM**
-    - [ ] Shadows **XTFW**
-    - [ ] Text Alignment **PBTW**
+    - [x] Shadows **XTFW**
+    - [x] Text Alignment **PBTW**
