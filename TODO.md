@@ -1,13 +1,14 @@
 # Abstract Goals
 
 - [ ] Code Cleanup
+    - [ ] Linting
 - [ ] Documentation
 - [ ] Testing
 
 # Legend
- **PBTW**: Provided By Tailwindcss
- **XFTW**: Extended From Tailwindcss
- **CM**: Custom Module Required
+- **PBTW**: Provided By Tailwindcss
+- **XFTW**: Extended From Tailwindcss
+- **CM**: Custom Module Required
 
 
 # Deliverables
