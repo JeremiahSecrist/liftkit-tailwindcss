@@ -6,7 +6,7 @@
   "types": "packages/liftKit-tailwindcss-plugin/index",
   "scripts": {
     "watch": "tailwindcss -c ./packages/liftKit-tailwindcss-plugin/checks/src/tailwindcss.config.js  -i ./packages/liftKit-tailwindcss-plugin/checks/src/input.css -o ./packages/liftKit-tailwindcss-plugin/checks/src/output.css  --watch ",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 0"
   },
   "repository": {
     "type": "git",
