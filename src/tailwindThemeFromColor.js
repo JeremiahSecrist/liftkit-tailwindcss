@@ -139,13 +139,13 @@ export const tailwindThemeFromColor = (colorsMap, scheme, contrast) => {
     colors[`on-${kebabName}-light`] = hexFromArgb(light.onColor);
     colors[`${kebabName}-container-light`] = hexFromArgb(light.colorContainer);
     colors[`on-${kebabName}-container-light`] = hexFromArgb(
-      light.onColorContainer
+      light.onColorContainer,
     );
     colors[`${kebabName}-dark`] = hexFromArgb(dark.color);
     colors[`on-${kebabName}-dark`] = hexFromArgb(dark.onColor);
     colors[`${kebabName}-container-dark`] = hexFromArgb(dark.colorContainer);
     colors[`on-${kebabName}-container-dark`] = hexFromArgb(
-      dark.onColorContainer
+      dark.onColorContainer,
     );
   });
 

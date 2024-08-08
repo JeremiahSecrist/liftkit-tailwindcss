@@ -4,15 +4,15 @@ import { calcScale, scaleToEm } from "./lib";
 const plugin = require("tailwindcss/plugin");
 
 module.exports = plugin.withOptions(
-  function(options = {}) {
+  function (options = {}) {
     const pluginPrefix = options?.pluginPrefix || "lk";
     var materialColors = tailwindThemeFromColor(
       options?.colorsMap || { primary: "#ff0000" },
       options?.scheme || "content",
-      options?.contrast || 0
+      options?.contrast || 0,
     );
     // const colorsMap = options.colorsMap ?? { primary: "#ff0000" };
-    return function({
+    return function ({
       addBase,
       addUtilities,
       config,
@@ -31,24 +31,22 @@ module.exports = plugin.withOptions(
       });
     };
   },
-  function(options = {}) {
-
-
+  function (options = {}) {
     const pluginPrefix = options?.pluginPrefix || "lk";
     var materialColors = tailwindThemeFromColor(
       options?.colorsMap || { primary: "#ff0000" },
       options?.scheme || "content",
-      options?.contrast || 0
+      options?.contrast || 0,
     );
     const boxShadows = require("./themes/shadows.json");
     const fontSize = require("./themes/fonts.json");
     const createSpacing = (theme) => {
-      const { factor, scale } = theme('lk').scaling;
+      const { factor, scale } = theme("lk").scaling;
       return Object.fromEntries(
         Object.entries(scale).map(([key, value]) => [
           key,
-          scaleToEm(factor, value)
-        ])
+          scaleToEm(factor, value),
+        ]),
       );
     };
     return {
@@ -64,9 +62,9 @@ module.exports = plugin.withOptions(
               md: 1,
               lg: 2,
               xl: 3,
-              "2xl": 4
+              "2xl": 4,
             },
-          }
+          },
         },
         screens: {
           sm: "998.875px",
@@ -94,13 +92,12 @@ module.exports = plugin.withOptions(
             ...theme("spacing"),
             circle: "100em",
           }),
-          spacing: ({ theme }) => createSpacing(theme)
-          ,
+          spacing: ({ theme }) => createSpacing(theme),
           colors: {
             [pluginPrefix]: materialColors,
           },
         },
       },
     };
-  }
+  },
 );

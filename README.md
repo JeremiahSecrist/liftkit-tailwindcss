@@ -1,4 +1,3 @@
-
 # LiftKit Tailwindcss
 
 LiftKit Tailwindcss is the Tailwindcss plugin of Chainlift's LiftKit design system. It's a lightweight framework of utility classes that use golden ratio scaling to provide a uniquely "oddly-satisfying" look.

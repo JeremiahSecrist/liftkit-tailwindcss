@@ -27,7 +27,8 @@
   },
   "homepage": "https://github.com/JeremiahSecrist/liftkit-tailwindcss#readme",
   "dependencies": {
-    "@material/material-color-utilities": "^0.3.0"
+    "@material/material-color-utilities": "^0.3.0",
+    "ci": "^2.3.0"
   },
   "peerDependencies": {
     "tailwindcss": ">=3.0.0"
