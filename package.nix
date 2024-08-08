@@ -5,7 +5,7 @@ buildNpmPackage {
     name = "source";
     path = ./.;
   };
-  npmDepsHash = "sha256-OPymzAgeLB3Rm7mWBRyBgGYgEmWLiLDv8OUQze8AiJk=";
+  npmDepsHash = "sha256-ZFkmUUKFHzs9bO66AGTdS131kfETsHXqyDnrkQIHHjA=";
   dontNpmBuild = true;
   doCheck = true;
   checkPhase = "npm run test";

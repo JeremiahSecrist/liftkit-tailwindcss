@@ -28,6 +28,10 @@
         ({ pkgs }: {
           default = pkgs.callPackage ./package.nix { };
         });
+      checks = forEachSupportedSystem
+        ({ pkgs }: {
+          default = pkgs.callPackage ./package.nix { };
+        });
       # Development environments
       devShells = forEachSupportedSystem ({ pkgs }: {
         default = pkgs.mkShell {
