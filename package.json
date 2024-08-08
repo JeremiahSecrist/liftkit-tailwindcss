@@ -2,11 +2,13 @@
   "name": "liftkit-tailwindcss",
   "version": "0.0.6",
   "description": "Chainlift's LiftKit design system for Tailwindcss",
-  "main": "",
-  "types": "packages/liftKit-tailwindcss-plugin/index",
+  "main": "src",
+  "types": "src",
   "scripts": {
     "watch": "tailwindcss -c ./checks/src/tailwindcss.config.js  -i ./checks/src/input.css -o ./checks/src/output.css  --watch ",
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "vitest run",
+    "test-watch": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "repository": {
     "type": "git",
@@ -25,7 +27,13 @@
   },
   "homepage": "https://github.com/JeremiahSecrist/liftkit-tailwindcss#readme",
   "dependencies": {
-    "@material/material-color-utilities": "^0.3.0",
-    "tailwindcss": "^3.4.4"
+    "@material/material-color-utilities": "^0.3.0"
+  },
+  "peerDependencies": {
+    "tailwindcss": ">=3.0.0"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^2.0.5",
+    "vitest": "^2.0.5"
   }
 }
