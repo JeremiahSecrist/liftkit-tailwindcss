@@ -15,10 +15,10 @@ const generatePluginCSS = async (options = {}) => {
     .then((result) => result.css)
 }
 
-test('text-*', async () => {
+test('fontsize', async () => {
   const css = await generatePluginCSS({
-    content: '<div class="text-display-1">Kaixo</div>'
+    content: 'text-display-1 text-display-2 text-title-3 text-heading text-heading-sub text-body text-callout text-label text-caption text-overline'
   })
-  expect(css).toMatchFileSnapshot('./snapshots/text-display-1.css');
+  expect(css).toMatchFileSnapshot('./snapshots/fontsize.css');
 })
 
