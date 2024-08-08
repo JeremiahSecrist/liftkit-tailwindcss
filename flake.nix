@@ -5,7 +5,8 @@
 
   # Flake inputs
   inputs = {
-    flake-schemas.url = "https://flakehub.com/f/DeterminateSystems/flake-schemas/*.tar.gz";
+    flake-schemas.url =
+      "https://flakehub.com/f/DeterminateSystems/flake-schemas/*.tar.gz";
 
     nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1.*.tar.gz";
   };
@@ -14,22 +15,25 @@
   outputs = { self, flake-schemas, nixpkgs }:
     let
       # Helpers for producing system-specific outputs
-      supportedSystems = [ "x86_64-linux" "aarch64-darwin" "x86_64-darwin" "aarch64-linux" ];
-      forEachSupportedSystem = f: nixpkgs.lib.genAttrs supportedSystems (system: f {
-        pkgs = import nixpkgs { inherit system; };
-      });
-    in {
+      supportedSystems =
+        [ "x86_64-linux" "aarch64-darwin" "x86_64-darwin" "aarch64-linux" ];
+      forEachSupportedSystem = f:
+        nixpkgs.lib.genAttrs supportedSystems
+          (system: f { pkgs = import nixpkgs { inherit system; }; });
+    in
+    {
       # Schemas tell Nix about the structure of your flake's outputs
       schemas = flake-schemas.schemas;
-
+      packages = forEachSupportedSystem
+        ({ pkgs }: {
+          default = pkgs.callPackage ./package.nix { };
+        });
       # Development environments
       devShells = forEachSupportedSystem ({ pkgs }: {
         default = pkgs.mkShell {
           # Pinned packages available in the environment
-          packages = with pkgs; [
-            nodejs-18_x
-            nixpkgs-fmt
-          ];
+          packages = with pkgs;
+            [ nodejs-18_x nixpkgs-fmt ];
         };
       });
     };
