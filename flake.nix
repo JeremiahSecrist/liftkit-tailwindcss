@@ -26,11 +26,12 @@
       schemas = flake-schemas.schemas;
       packages = forEachSupportedSystem
         ({ pkgs }: {
-          default = pkgs.callPackage ./package.nix { };
+          default = pkgs.callPackage ./nix/package.nix { };
+          docs = pkgs.callPackage ./nix/docs.nix { };
         });
       checks = forEachSupportedSystem
         ({ pkgs }: {
-          default = pkgs.callPackage ./package.nix { };
+          default = pkgs.callPackage ./nix/package.nix { };
         });
       # Development environments
       devShells = forEachSupportedSystem ({ pkgs }: {
