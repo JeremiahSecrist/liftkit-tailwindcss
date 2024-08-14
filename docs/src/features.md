@@ -34,6 +34,6 @@ negative results in sqrt values smaller than the original.
 |**text-subheading**|font-normal|font-semibold|0.885em|1.272|-0.007|
 |**text-body**|font-normal|font-semibold|1em|1.618|-0.011|
 |**text-callout**|font-normal|font-semibold|0.943em|	1.272|-0.009|
-|**text-label**|font-medium|font-bold|0.835|1.272em|-0.004|
+|**text-label**|font-medium|font-bold|0.835em|1.272|-0.004|
 |**text-caption**|font-normal|font-semibold|0.786em|1.272|-0.007|
 |**text-overline**|font-normal|font-semibold|0.786em|1.272|0.0618|
