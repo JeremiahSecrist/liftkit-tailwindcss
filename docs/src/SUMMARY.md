@@ -1,1 +1,2 @@
 - [installation](./installation.md)
+- [features](./features.md)

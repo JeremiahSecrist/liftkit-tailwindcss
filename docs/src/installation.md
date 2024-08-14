@@ -11,7 +11,7 @@ For a full Installation of tailwind please see their [docs](https://tailwindcss.
 # Liftkit plugin
 
 ```shell
-npm i -D Liftkit-tailwindcss
+npm i -D liftkit-tailwindcss
 ```
 
 ## Basic configuration
