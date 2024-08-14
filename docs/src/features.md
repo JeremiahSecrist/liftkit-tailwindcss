@@ -3,8 +3,8 @@
 This covers the classes that are added when installed.
 
 # Typography
-|   class   |   Weight  |   Size    |   Line Height |   Letter Spacing  |
-|   ---     |   ------  |   ----    |   ----------- |   --------------  |
+|   class   |   Weight  | Emphasized Weight |   Size    |   Line Height |   Letter Spacing  |
+|   -----   |   ------  | ----------------- |   ---     |   ----------- |   --------------  |
 |**text-display-1**|400|700|4.235|1.129|-0.022|
 |**text-display-2**|400|700|2.618|1.272|-0.0|
 |**text-title-1**|400|700|2.058|1.272|-0.0|
