@@ -76,13 +76,13 @@ module.exports = plugin.withOptions(
             ...createSpacing(options),
             circle: "100em",
           },
-          spacing: { ...createSpacing(options), },
+          spacing: createSpacing(options),
           colors: {
             [options.prefix]: materialColors(options),
           },
           [options.prefix]: {
             section: {
-              least: createSpacing(options).sm
+              least: createSpacing(options)["lk-sm"],
             },
           },
         },
