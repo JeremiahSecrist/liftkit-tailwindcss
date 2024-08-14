@@ -1,0 +1,24 @@
+[book]
+authors = ["Jermeiah S"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Liftkit tailwindcss"
+
+# book.toml
+[output.html]
+site-url = "/regula-nix/"
+smart-punctuation = true
+git-repository-url = "https://github.com/JeremiahSecrist/regula-nix/"
+edit-url-template = "https://github.com/JeremiahSecrist/regula-nix/edit/main/docs/{path}"
+additional-js = ["mermaid.min.js", "mermaid-init.js"]
+
+[output.html.playground]
+editable = true
+line-numbers = true
+
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
+
+[output.html.redirect]
+"/format/config.html" = "configuration/index.html"
