@@ -2,8 +2,28 @@
 
 This covers the classes that are added when installed.
 
-# Typography
-|   class   |   Default Weight Class  | Emphasized Weight Class |   Size    |   Line Height |   Letter Spacing  |
+## Scaling System
+The scaling system is applied to all relavent options inside the tailwind system.
+It can be adressed by its lk prefix. For example padding-lk-sm will result in the correct scale.
+The math works as follows:
+ let B = base value to which the system scales.
+ let P = the power this is raised to.
+ in B^P = value;
+positive values result in order of magnitude high numbers.
+negative results in sqrt values smaller than the original.
+
+|class| value | B | P |
+| - | - | - | - |
+| 2xs | 0.236082 | 1.618 | -3 |
+| xs |0.381982| 1.618 | -2 |
+| sm | 0.618046 | 1.618 | -1 |
+| md | 1 | 1.618 | 0 |
+| lg | 1.618 | 1.618 | 1 |
+| xl | 2.617924 | 1.618 | 2 |
+| 2xl | 4.235801 | 1.618 | 3 |
+
+## Typography
+|   class   |   Default Weight Class  | Emphasized Weight Class |   Size Class    |   Line Height |   Letter Spacing  |
 |   -----   |   ------  | ----------------- |   ---     |   ----------- |   --------------  |
 |**text-display-1**|font-normal|font-bold|4.235|1.129|-0.022|
 |**text-display-2**|font-normal|font-bold|2.618|1.272|-0.0|
