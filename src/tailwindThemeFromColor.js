@@ -24,65 +24,85 @@ const kebabize = (str) => {
     .join("");
 };
 
-const AllMaterialDynamicColors = {
-  background: MaterialDynamicColors.background,
-  "on-background": MaterialDynamicColors.onBackground,
 
-  surface: MaterialDynamicColors.surface,
-  "surface-dim": MaterialDynamicColors.surfaceDim,
-  "surface-bright": MaterialDynamicColors.surfaceBright,
-  "surface-container-lowest": MaterialDynamicColors.surfaceContainerLowest,
-  "surface-container-low": MaterialDynamicColors.surfaceContainerLow,
-  "surface-container": MaterialDynamicColors.surfaceContainer,
-  "surface-container-high": MaterialDynamicColors.surfaceContainerHigh,
-  "surface-container-highest": MaterialDynamicColors.surfaceContainerHighest,
-  "on-surface": MaterialDynamicColors.onSurface,
-  "on-surface-dim": MaterialDynamicColors.onSurface,
-  "on-surface-bright": MaterialDynamicColors.onSurface,
-  "on-surface-container-lowest": MaterialDynamicColors.onSurface,
-  "on-surface-container-low": MaterialDynamicColors.onSurface,
-  "on-surface-container": MaterialDynamicColors.onSurface,
-  "on-surface-container-high": MaterialDynamicColors.onSurface,
-  "on-surface-container-highest": MaterialDynamicColors.onSurface,
 
-  "surface-variant": MaterialDynamicColors.surfaceVariant,
-  "on-surface-variant": MaterialDynamicColors.onSurfaceVariant,
+const AllMaterialDynamicColors = Object.keys(MaterialDynamicColors).reduce((acc, key) => {
+  const dynamicColorObj = MaterialDynamicColors[key];
 
-  "inverse-surface": MaterialDynamicColors.inverseSurface,
-  "on-inverse-surface": MaterialDynamicColors.inverseOnSurface,
+  if (dynamicColorObj && typeof dynamicColorObj.getArgb === 'function') {
+    acc[key] = dynamicColorObj;
+  } else {
+    console.warn(`Key ${key} does not have a valid getArgb method`);
+  }
 
-  outline: MaterialDynamicColors.outline,
-  "outline-variant": MaterialDynamicColors.outlineVariant,
+  // Handle on-prefixed keys as needed
+  if (key.startsWith('on')) {
+    const originalKey = key.charAt(2).toLowerCase() + key.slice(3);
+    acc[`on-${originalKey}`] = dynamicColorObj;
+  }
 
-  "surface-tint": MaterialDynamicColors.surfaceTint,
-  "on-surface-tint": MaterialDynamicColors.onSurface,
+  return acc;
+}, {});
 
-  primary: MaterialDynamicColors.primary,
-  "on-primary": MaterialDynamicColors.onPrimary,
+// const AllMaterialDynamicColors = {
+//   background: MaterialDynamicColors.background,
+//   "on-background": MaterialDynamicColors.onBackground,
 
-  "primary-container": MaterialDynamicColors.primaryContainer,
-  "on-primary-container": MaterialDynamicColors.onPrimaryContainer,
+//   surface: MaterialDynamicColors.surface,
+//   "surface-dim": MaterialDynamicColors.surfaceDim,
+//   "surface-bright": MaterialDynamicColors.surfaceBright,
+//   "surface-container-lowest": MaterialDynamicColors.surfaceContainerLowest,
+//   "surface-container-low": MaterialDynamicColors.surfaceContainerLow,
+//   "surface-container": MaterialDynamicColors.surfaceContainer,
+//   "surface-container-high": MaterialDynamicColors.surfaceContainerHigh,
+//   "surface-container-highest": MaterialDynamicColors.surfaceContainerHighest,
+//   "on-surface": MaterialDynamicColors.onSurface,
+//   "on-surface-dim": MaterialDynamicColors.onSurface,
+//   "on-surface-bright": MaterialDynamicColors.onSurface,
+//   "on-surface-container-lowest": MaterialDynamicColors.onSurface,
+//   "on-surface-container-low": MaterialDynamicColors.onSurface,
+//   "on-surface-container": MaterialDynamicColors.onSurface,
+//   "on-surface-container-high": MaterialDynamicColors.onSurface,
+//   "on-surface-container-highest": MaterialDynamicColors.onSurface,
 
-  "inverse-primary": MaterialDynamicColors.inversePrimary,
+//   "surface-variant": MaterialDynamicColors.surfaceVariant,
+//   "on-surface-variant": MaterialDynamicColors.onSurfaceVariant,
 
-  secondary: MaterialDynamicColors.secondary,
-  "on-secondary": MaterialDynamicColors.onSecondary,
+//   "inverse-surface": MaterialDynamicColors.inverseSurface,
+//   "on-inverse-surface": MaterialDynamicColors.inverseOnSurface,
 
-  "secondary-container": MaterialDynamicColors.secondaryContainer,
-  "on-secondary-container": MaterialDynamicColors.onSecondaryContainer,
+//   outline: MaterialDynamicColors.outline,
+//   "outline-variant": MaterialDynamicColors.outlineVariant,
 
-  tertiary: MaterialDynamicColors.tertiary,
-  "on-tertiary": MaterialDynamicColors.onTertiary,
+//   "surface-tint": MaterialDynamicColors.surfaceTint,
+//   "on-surface-tint": MaterialDynamicColors.onSurface,
 
-  "tertiary-container": MaterialDynamicColors.tertiaryContainer,
-  "on-tertiary-container": MaterialDynamicColors.onTertiaryContainer,
+//   primary: MaterialDynamicColors.primary,
+//   "on-primary": MaterialDynamicColors.onPrimary,
 
-  error: MaterialDynamicColors.error,
-  "on-error": MaterialDynamicColors.onError,
+//   "primary-container": MaterialDynamicColors.primaryContainer,
+//   "on-primary-container": MaterialDynamicColors.onPrimaryContainer,
 
-  "error-container": MaterialDynamicColors.errorContainer,
-  "on-error-container": MaterialDynamicColors.onErrorContainer,
-};
+//   "inverse-primary": MaterialDynamicColors.inversePrimary,
+
+//   secondary: MaterialDynamicColors.secondary,
+//   "on-secondary": MaterialDynamicColors.onSecondary,
+
+//   "secondary-container": MaterialDynamicColors.secondaryContainer,
+//   "on-secondary-container": MaterialDynamicColors.onSecondaryContainer,
+
+//   tertiary: MaterialDynamicColors.tertiary,
+//   "on-tertiary": MaterialDynamicColors.onTertiary,
+
+//   "tertiary-container": MaterialDynamicColors.tertiaryContainer,
+//   "on-tertiary-container": MaterialDynamicColors.onTertiaryContainer,
+
+//   error: MaterialDynamicColors.error,
+//   "on-error": MaterialDynamicColors.onError,
+
+//   "error-container": MaterialDynamicColors.errorContainer,
+//   "on-error-container": MaterialDynamicColors.onErrorContainer,
+// };
 
 /**
  *

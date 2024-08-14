@@ -78,7 +78,7 @@ module.exports = plugin.withOptions(
           },
           spacing: { ...createSpacing(options), },
           colors: {
-            ...materialColors(options),
+            [options.prefix]: materialColors(options),
           },
           [options.prefix]: {
             section: {
