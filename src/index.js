@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 import plugin from "tailwindcss/plugin";
 import { materialColors, createSpacing } from "./lib";
-const boxShadows = require("./themes/shadows.json");
-const fontSize = require("./themes/fonts.json");
+import { boxShadow } from "./themes/shadows";
+import { fontSize } from "./themes/fonts";
 const pluginOptions = {
   prefix: "lk",
   baseColors: { primary: "", info: "", warning: "", error: "" },
@@ -55,9 +55,8 @@ module.exports = plugin.withOptions(
   },
   (options = pluginOptions) => {
     return {
-
       theme: {
-        boxShadow: boxShadows,
+        boxShadow: boxShadow,
         aspectRatio: {
           "16-9": "16 / 9",
           "4-3": "4 / 3",
@@ -65,7 +64,7 @@ module.exports = plugin.withOptions(
           "9-16": "9 / 16",
           "1-1": "1 / 1",
         },
-        fontSize: fontSize,
+        fontSize: fontSize(createSpacing(options)),
         extend: {
           padding: {
             mid: "100px",

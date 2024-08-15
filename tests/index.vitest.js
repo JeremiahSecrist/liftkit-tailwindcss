@@ -1,12 +1,10 @@
 const postcss = require("postcss");
 import { test, expect, describe, it } from "vitest";
 import tailwindcss from "tailwindcss";
-import cssnanoPlugin from "cssnano";
 import liftkittailwindcss from "../src";
 
-function generatePluginCSS({ content }) {
+async function generatePluginCSS({ content }) {
   return postcss([
-    cssnanoPlugin(),
     tailwindcss({ plugins: [liftkittailwindcss], content: [{ raw: content }] }),
   ])
     .process("@tailwind utilities; @tailwind components;", { from: undefined })
@@ -38,11 +36,9 @@ const testCases = {
 // Function to run tests for each attribute in the object of objects
 function mapAndTest(attrSet) {
   Object.entries(attrSet).forEach(([name, { content }]) => {
-    describe(`Tailwind CSS Plugin Test: ${name}`, () => {
-      it(`should generate the correct CSS for ${name}`, async () => {
-        const css = await generatePluginCSS({ content });
-        expect(css).toMatchFileSnapshot(`./snapshots/${name}.css`);
-      });
+    test(`Generate Tailwind CSS for ${name} with ${content}`, async () => {
+      const css = await generatePluginCSS({ content });
+      expect(css).toMatchFileSnapshot(`./snapshots/${name}.css`);
     });
   });
 }
