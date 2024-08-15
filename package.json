@@ -35,7 +35,6 @@
   },
   "devDependencies": {
     "@vitest/coverage-v8": "^2.0.5",
-    "cssnano": "^7.0.4",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.5",
     "vitest": "^2.0.5"
