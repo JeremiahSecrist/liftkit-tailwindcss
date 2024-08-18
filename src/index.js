@@ -5,7 +5,6 @@ import { boxShadow } from "./themes/shadows";
 import { fontSize } from "./themes/fonts";
 const pluginOptions = {
   prefix: "lk",
-  baseColors: { primary: "", info: "", warning: "", error: "" },
   scaling: {
     factor: 1.618,
     scale: {
@@ -19,7 +18,7 @@ const pluginOptions = {
     },
   },
   colors: {
-    colorsMap: { primary: "#ff0000" },
+    colorsMap: { primary: "#ffff00", info: "#fff000", warning: "#fff000", error: "#fff000" },
     scheme: "content",
     contrast: 0
   },
@@ -43,6 +42,15 @@ module.exports = plugin.withOptions(
         //   // Add your component styles here
         // },
       });
+      matchComponents(
+        {
+          containers: value => ({
+            marginLeft: "auto",
+            marginRight: "auto",
+            maxWidth: value,
+          })
+        }, { values: theme('lk.container') }
+      );
       matchUtilities(
         {
           section: value => ({
@@ -64,7 +72,7 @@ module.exports = plugin.withOptions(
           "9-16": "9 / 16",
           "1-1": "1 / 1",
         },
-        fontSize: fontSize(createSpacing(options)),
+        fontSize: fontSize(),
         extend: {
           padding: {
             mid: "100px",
@@ -80,6 +88,13 @@ module.exports = plugin.withOptions(
             [options.prefix]: materialColors(options),
           },
           [options.prefix]: {
+            container: {
+              least: "988px",
+              less: "1257px",
+              DEFAULT: "1600px",
+              more: "1804px",
+              most: "none",
+            },
             section: {
               least: createSpacing(options)["lk-sm"],
             },

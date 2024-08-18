@@ -1,12 +1,12 @@
 .bg-lk-primary-light {
     --tw-bg-opacity: 1;
-    background-color: rgb(188 1 0 / var(--tw-bg-opacity))
+    background-color: rgb(98 98 0 / var(--tw-bg-opacity))
 }
 .bg-lk-secondary-dark {
     --tw-bg-opacity: 1;
-    background-color: rgb(255 180 168 / var(--tw-bg-opacity))
+    background-color: rgb(204 204 99 / var(--tw-bg-opacity))
 }
 .bg-lk-secondary-light {
     --tw-bg-opacity: 1;
-    background-color: rgb(183 33 20 / var(--tw-bg-opacity))
+    background-color: rgb(98 98 0 / var(--tw-bg-opacity))
 }
