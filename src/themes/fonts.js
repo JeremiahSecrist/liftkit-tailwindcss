@@ -1,6 +1,6 @@
-export const fontSize = (scaling) => ({
+export const fontSize = () => ({
   "display-1": [
-    `${scaling["lk-xl"]}em`,
+    "4.235em",
     {
       "lineHeight": "1.129",
       "letterSpacing": "-0.022em",
