@@ -1,3 +1,4 @@
+// im a nix dev, sue me
 import { tailwindThemeFromColor } from "./tailwindThemeFromColor";
 const calcScale = (factor, power, precision = 6) =>
   Math.pow(factor, power).toPrecision(precision);
