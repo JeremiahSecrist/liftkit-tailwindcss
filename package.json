@@ -2,8 +2,8 @@
   "name": "liftkit-tailwindcss",
   "version": "0.0.6",
   "description": "Chainlift's LiftKit design system for Tailwindcss",
-  "main": "src",
-  "types": "src",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
   "scripts": {
     "watch": "tailwindcss -c ./checks/src/tailwindcss.config.js  -i ./checks/src/input.css -o ./checks/src/output.css  --watch ",
     "test": "vitest run",
