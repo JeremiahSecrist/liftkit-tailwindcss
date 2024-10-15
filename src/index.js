@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 import plugin from "tailwindcss/plugin";
-import { materialColors, createSpacing } from "./lib";
-import { boxShadow } from "./themes/shadows";
-import { fontSize } from "./themes/fonts";
+import { materialColors, createSpacing, createSpacingVars, calcStep, createStep } from "./lib";
+import { boxShadow } from "./components/shadows";
+import { fontSize } from "./components/fonts";
 const pluginOptions = {
   prefix: "lk",
   scaling: {
@@ -16,6 +16,16 @@ const pluginOptions = {
       xl: 2,
       "2xl": 3,
     },
+    step: {
+      whole: 1,
+      half: 2,
+      quater: 3,
+      eigth: 4,
+      "whole-dec": -1,
+      "half-dec": -2,
+      "quater-dec": -3,
+      "eigth-dec": -4,
+    }
   },
   colors: {
     colorsMap: { primary: "#ffff00", info: "#fff000", warning: "#fff000", error: "#fff000" },
@@ -27,21 +37,37 @@ module.exports = plugin.withOptions(
   function(options = pluginOptions) {
     return function({
       addBase,
-      addUtilities,
-      config,
-      corePlugins,
-      e,
+      // addUtilities,
+      // config,
+      // corePlugins,
+      // e,
       matchComponents,
       matchUtilities,
-      addComponents,
-      matchVariant,
+      // addComponents,
+      // matchVariant,
       theme,
     }) {
-      addComponents({
-        // [`.${className}`]: {
-        //   // Add your component styles here
-        // },
-      });
+      addBase({
+        root: {
+          "--factor": options.factor,
+          ...createSpacingVars(options),
+          ...createStep(options)
+
+        }
+      }),
+        matchComponents({
+          button: value => ({
+            display: "inline-block",
+            border: "1px solid rgba(0, 0, 0, 0)",
+            borderRadius: "100em",
+            position: "relative",
+            textDecoration: "none",
+            whiteSpace: "normal",
+            wordBreak: "keep-all",
+            overflow: "hidden",
+            padding: `${value} 1em`
+          })
+        }, { values: theme(options.prefix + ".button") });
       matchComponents(
         {
           containers: value => ({
@@ -49,7 +75,7 @@ module.exports = plugin.withOptions(
             marginRight: "auto",
             maxWidth: value,
           })
-        }, { values: theme('lk.container') }
+        }, { values: theme(options.prefix + ".container") }
       );
       matchUtilities(
         {
@@ -57,8 +83,16 @@ module.exports = plugin.withOptions(
             padding: value
           }),
         },
-        { values: theme('lk.section') }
+        { values: theme(options.prefix + '.section') }
       );
+      // matchUtilities(
+      //   {
+      //     scale: value => ({
+      //       transform: value
+      //     }),
+      //   },
+      //   { values: theme(options.prefix + '.scale') }
+      // );
     };
   },
   (options = pluginOptions) => {
@@ -88,6 +122,9 @@ module.exports = plugin.withOptions(
             [options.prefix]: materialColors(options),
           },
           [options.prefix]: {
+            button: {
+
+            },
             container: {
               least: "988px",
               less: "1257px",
