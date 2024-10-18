@@ -21,7 +21,7 @@ const calcStep = (base, tier) => {
   return calcStepi(base, Math.abs(tier) - 1) + (tier < 0 ? -1 : 0);
 };
 
-const createStep = (options) => {
+const createStepVars = (options) => {
   return Object.fromEntries(
     Object.entries(options.scaling.step).map(([key, value]) => [
       `--${options.prefix}-${key}`,
@@ -53,4 +53,4 @@ const materialColors = (options) => tailwindThemeFromColor(
   options?.colors.scheme,
   options?.colors.contrast,
 );
-export { materialColors, createSpacing, createStep, createSpacingVars, calcScale, calcStep, scaleToEm };
+export { materialColors, createSpacing, createStepVars, createSpacingVars, calcScale, calcStep, scaleToEm };
