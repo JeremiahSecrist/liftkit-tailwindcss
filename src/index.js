@@ -61,30 +61,16 @@ module.exports = plugin.withOptions(
           ...createSpacingVars(options),
           ...createStepVars(options)
         }
-      }),
-        // matchComponents({
-        //   button: value => ({
-        //     "--button-font-size": "16px",
-        //     display: "inline-block",
-        //     border: "1px solid rgba(0, 0, 0, 0)",
-        //     borderRadius: "100em",
-        //     position: "relative",
-        //     textDecoration: "none",
-        //     whiteSpace: "normal",
-        //     wordBreak: "keep-all",
-        //     overflow: "hidden",
-        //     padding: `${value} * calc(var(--halfstep) / var(--xl-unitless) 1em`
-        //   })
-        // }, { values: theme(options.prefix + ".button") });
-        matchComponents(
-          {
-            containers: value => ({
-              marginLeft: "auto",
-              marginRight: "auto",
-              maxWidth: value,
-            })
-          }, { values: theme(options.prefix + ".container") }
-        );
+      });
+      matchComponents(
+        {
+          containers: value => ({
+            marginLeft: "auto",
+            marginRight: "auto",
+            maxWidth: value,
+          })
+        }, { values: theme(options.prefix + ".container") }
+      );
       matchUtilities(
         {
           section: value => ({

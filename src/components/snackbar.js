@@ -1,6 +1,4 @@
-export default snackbar
-
-snackbar = () => ({
+const snackbar = () => ({
   ".cell": {
     padding: "24px",
     backgroundColor: "var(--light__primary_lkv)",
@@ -50,3 +48,5 @@ snackbar = () => ({
     gap: "1em",
   }
 })
+
+export default snackbar

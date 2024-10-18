@@ -1,5 +1,3 @@
-export default iconButtons;
-
 const iconButtons = () => ({
   ".cell": {
     padding: "24px",
@@ -45,3 +43,5 @@ const iconButtons = () => ({
     fontSize: "calc(1em * var(--wholestep))",
   },
 });
+
+export default iconButtons;
