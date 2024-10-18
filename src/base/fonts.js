@@ -1,4 +1,4 @@
-export const fontSize = () => ({
+const fontSize = () => ({
   "display-1": [
     "4.235em",
     {
@@ -96,3 +96,4 @@ export const fontSize = () => ({
     }
   ]
 });
+export default fontSize

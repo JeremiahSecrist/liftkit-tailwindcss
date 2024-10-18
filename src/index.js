@@ -1,8 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 import plugin from "tailwindcss/plugin";
-import { materialColors, createSpacing, createSpacingVars, calcStep, createStep } from "./lib";
-import { boxShadow } from "./components/shadows";
-import { fontSize } from "./components/fonts";
+import { materialColors, createSpacing, createSpacingVars, calcStep, createStepVars } from "./lib";
+import boxShadow from "./base/shadows";
+import fontSize from "./base/fonts";
+import badge from "./components/badge";
+import buttons from "./components/buttons"
+import cards from "./components/cards"
+import iconButtons from "./components/icon-buttons"
+import snackbar from "./components/snackbar";
 const pluginOptions = {
   prefix: "lk",
   scaling: {
@@ -25,19 +30,22 @@ const pluginOptions = {
       "half-dec": -2,
       "quater-dec": -3,
       "eigth-dec": -4,
-    }
+    },
   },
   colors: {
     colorsMap: { primary: "#ffff00", info: "#fff000", warning: "#fff000", error: "#fff000" },
     scheme: "content",
     contrast: 0
   },
+  buttons: {
+
+  }
 };
 module.exports = plugin.withOptions(
   function(options = pluginOptions) {
     return function({
       addBase,
-      // addUtilities,
+      addUtilities,
       // config,
       // corePlugins,
       // e,
@@ -51,32 +59,32 @@ module.exports = plugin.withOptions(
         root: {
           "--factor": options.factor,
           ...createSpacingVars(options),
-          ...createStep(options)
-
+          ...createStepVars(options)
         }
       }),
-        matchComponents({
-          button: value => ({
-            display: "inline-block",
-            border: "1px solid rgba(0, 0, 0, 0)",
-            borderRadius: "100em",
-            position: "relative",
-            textDecoration: "none",
-            whiteSpace: "normal",
-            wordBreak: "keep-all",
-            overflow: "hidden",
-            padding: `${value} 1em`
-          })
-        }, { values: theme(options.prefix + ".button") });
-      matchComponents(
-        {
-          containers: value => ({
-            marginLeft: "auto",
-            marginRight: "auto",
-            maxWidth: value,
-          })
-        }, { values: theme(options.prefix + ".container") }
-      );
+        // matchComponents({
+        //   button: value => ({
+        //     "--button-font-size": "16px",
+        //     display: "inline-block",
+        //     border: "1px solid rgba(0, 0, 0, 0)",
+        //     borderRadius: "100em",
+        //     position: "relative",
+        //     textDecoration: "none",
+        //     whiteSpace: "normal",
+        //     wordBreak: "keep-all",
+        //     overflow: "hidden",
+        //     padding: `${value} * calc(var(--halfstep) / var(--xl-unitless) 1em`
+        //   })
+        // }, { values: theme(options.prefix + ".button") });
+        matchComponents(
+          {
+            containers: value => ({
+              marginLeft: "auto",
+              marginRight: "auto",
+              maxWidth: value,
+            })
+          }, { values: theme(options.prefix + ".container") }
+        );
       matchUtilities(
         {
           section: value => ({
@@ -85,6 +93,7 @@ module.exports = plugin.withOptions(
         },
         { values: theme(options.prefix + '.section') }
       );
+      addUtilities(badge());
       // matchUtilities(
       //   {
       //     scale: value => ({
